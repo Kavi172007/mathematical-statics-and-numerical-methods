@@ -1,0 +1,9 @@
+# Problem 1: Mean of the first data set
+data1 = [25, 32, 28, 34, 24, 31, 36, 27, 29, 30]
+mean1 = sum(data1) / len(data1)
+print("Mean of first data set:", mean1)
+
+# Problem 2: Mean of the second data set
+data2 = [54, 77, 67, 67, 46, 64, 62, 56, 38]
+mean2 = sum(data2) / len(data2)
+print("Mean of second data set:", mean2)
