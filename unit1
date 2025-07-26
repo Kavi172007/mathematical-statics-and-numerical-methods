@@ -1,9 +1,95 @@
-# Problem 1: Mean of the first data set
-data1 = [25, 32, 28, 34, 24, 31, 36, 27, 29, 30]
-mean1 = sum(data1) / len(data1)
-print("Mean of first data set:", mean1)
+1.// Calculate the mean using C program
 
-# Problem 2: Mean of the second data set
-data2 = [54, 77, 67, 67, 46, 64, 62, 56, 38]
-mean2 = sum(data2) / len(data2)
-print("Mean of second data set:", mean2)
+#include <stdio.h>
+int main() {
+    int n, i;
+    float num, sum = 0, mean;
+    printf("Enter the number of observations: ");
+    scanf("%d", &n);
+    for(i = 1; i <= n; i++) {
+        printf("Enter number %d: ", i);
+        scanf("%f", &num);
+        sum += num;
+    }
+    mean = sum / n;
+    printf("The mean is: %.2f\n", mean);
+    return 0;
+}
+#input and output:
+Enter the number of observations: 10
+
+Enter number 1: 25
+
+Enter number 2: 32
+
+Enter number 3: 28
+
+Enter number 4: 34
+
+Enter number 5: 24
+
+Enter number 6: 31
+
+Enter number 7: 36
+
+Enter number 8: 27
+
+Enter number 9: 29
+
+Enter number 10: 30
+
+The mean is: 29.60
+
+2.//calculate the median using c program
+
+#include <stdio.h>
+int main() {
+    int n, i, j, temp;
+    float median;
+    printf("Enter the number of observations: ");
+    scanf("%d", &n);
+    int data[n];
+    for(i = 0; i < n; i++) {
+        printf("Enter value %d: ", i + 1);
+        scanf("%d", &data[i]);
+    }
+    for(i = 0; i < n - 1; i++) {
+        for(j = 0; j < n - i - 1; j++) {
+            if(data[j] > data[j + 1]) {
+                temp = data[j];
+                data[j] = data[j + 1];
+                data[j + 1] = temp;
+            }
+        }
+    }
+    if(n % 2 == 0) {
+        median = (data[n / 2 - 1] + data[n / 2]) / 2.0;
+    } else {
+        median = data[n / 2];
+    }
+    printf("The median is: %.3f\n", median);
+    return 0;
+}
+# input and output 
+Enter the number of observations: 9
+
+Enter value 1: 27
+
+Enter value 2: 36
+
+Enter value 3: 28
+
+Enter value 4: 18
+
+Enter value 5: 35
+
+Enter value 6: 26
+
+Enter value 7: 20
+
+Enter value 8: 40
+
+Enter value 9: 26
+
+The median is: 27.000
+
