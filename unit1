@@ -17,27 +17,16 @@ int main() {
 }
 #input and output:
 Enter the number of observations: 10
-
 Enter number 1: 25
-
 Enter number 2: 32
-
 Enter number 3: 28
-
 Enter number 4: 34
-
 Enter number 5: 24
-
 Enter number 6: 31
-
 Enter number 7: 36
-
 Enter number 8: 27
-
 Enter number 9: 29
-
-Enter number 10: 30
-
+Enter number 10: 3
 The mean is: 29.60
 
 2.//calculate the median using c program
@@ -72,24 +61,71 @@ int main() {
 }
 # input and output 
 Enter the number of observations: 9
-
 Enter value 1: 27
-
 Enter value 2: 36
-
 Enter value 3: 28
-
 Enter value 4: 18
-
 Enter value 5: 35
-
 Enter value 6: 26
-
 Enter value 7: 20
-
 Enter value 8: 40
-
 Enter value 9: 26
-
 The median is: 27.000
 
+//mode individual in c program 
+
+#include <stdio.h>
+int main() {
+    int data[100], freq[100] = {0};
+    int n, i, j, max = 0;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter the elements:\n");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &data[i]);
+    }
+
+    for(i = 0; i < n; i++) {
+        for(j = 0; j < n; j++) {
+            if(data[i] == data[j])
+                freq[i]++;
+        }
+        if(freq[i] > max)
+            max = freq[i];
+    }
+
+    printf("Mode = ");
+    for(i = 0; i < n; i++) {
+        int isPrinted = 0;
+        for(j = 0; j < i; j++) {
+            if(data[i] == data[j]) {
+                isPrinted = 1;
+                break;
+            }
+        }
+        if(!isPrinted && freq[i] == max) {
+            printf("%d ", data[i]);
+        }
+    }
+
+    if(max > 1)
+        printf("\nThe data is bimodal or multimodal.\n");
+    else
+        printf("\nNo mode found.\n");
+
+    return 0;
+}
+#input and output
+
+Enter the number of elements: 5
+Enter the elements:
+13
+45
+13
+1
+89
+6
+Mode = 13
+The data is bimodal or multimodal.
